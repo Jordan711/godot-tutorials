@@ -1,0 +1,25 @@
+using Godot;
+using System;
+
+public partial class Paddle : Area2D
+{
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+		// On a keyboard is either 0 or 1
+		// On a joystick, value is 0 < x < 1
+		if (Input.IsActionPressed("Right") == true)
+		{
+			Position += new Vector2(100.0f * (float)delta, 0);
+		}
+		if (Input.IsActionPressed("Left") == true)
+		{
+			Position -= new Vector2(100.0f * (float)delta, 0);
+		}
+	}
+}
