@@ -28,6 +28,8 @@ public partial class Game : Node2D
 		// _EnterTree
 		// _Ready --> Any node, child included are ready
 		// _ExitTree --> Removed from the tree
+
+		// Signals emit messages
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
