@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://csy71taqtjqlu"]
+[gd_scene load_steps=4 format=3 uid="uid://csy71taqtjqlu"]
 
+[ext_resource type="Script" uid="uid://bukeeffsx0b1m" path="res://Scenes/Gem/Gem.cs" id="1_7tt7y"]
 [ext_resource type="Texture2D" uid="uid://cw20hr3xkvg7u" path="res://assets/element_red_diamond.png" id="1_pm03b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pm03b"]
 size = Vector2(35, 35)
 
-[node name="Area2D" type="Area2D"]
+[node name="Gem" type="Area2D"]
+script = ExtResource("1_7tt7y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_pm03b")

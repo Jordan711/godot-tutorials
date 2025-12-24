@@ -29,7 +29,7 @@ public partial class Game : Node2D
 		// _Ready --> Any node, child included are ready
 		// _ExitTree --> Removed from the tree
 
-		// Signals emit messages
+		// Signals emit messages, interpreted by subscribers which then invoke a function
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,5 +37,10 @@ public partial class Game : Node2D
 	// _PhysicsProcess(delta) always called at 60fps
 	public override void _Process(double delta)
 	{
+	}
+
+	private void OnScored()
+	{
+		GD.Print("Game subscriber received message");
 	}
 }
