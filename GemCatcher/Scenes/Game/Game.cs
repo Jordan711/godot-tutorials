@@ -1,9 +1,16 @@
 using Godot;
 using System;
+using System.ComponentModel;
 
 public partial class Game : Node2D
 {
 	// Called when the node enters the scene tree for the first time.
+	//[Export] private Gem _gem;
+
+	// For spawning multiple gems into the game
+	[Export] private PackedScene _gemScene;
+	[Export] private Timer _spawnTimer;
+
 	public override void _Ready()
 	{
 		// X increases means going from left to right
@@ -30,6 +37,11 @@ public partial class Game : Node2D
 		// _ExitTree --> Removed from the tree
 
 		// Signals emit messages, interpreted by subscribers which then invoke a function
+
+		// Gem gem = GetNode<Gem>("Gem");
+		//_gem.OnScored += OnScored;
+		_spawnTimer.Timeout += SpawnGem;
+		SpawnGem();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,8 +51,23 @@ public partial class Game : Node2D
 	{
 	}
 
+	private void SpawnGem()
+	{
+		Rect2 vpr = GetViewportRect();
+		Gem gem = (Gem)_gemScene.Instantiate();
+		AddChild(gem);
+
+		float rX = (float)GD.RandRange(
+			vpr.Position.X + 50.0, vpr.End.X- 50.0
+		);
+
+		gem.Position = new Vector2(rX, -100);
+		gem.OnScored += OnScored;
+	}
+
 	private void OnScored()
 	{
+
 		GD.Print("Game subscriber received message");
 	}
 }
