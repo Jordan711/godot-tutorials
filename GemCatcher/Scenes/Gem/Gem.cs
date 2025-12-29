@@ -31,11 +31,10 @@ public partial class Gem : Area2D
 
 	private void CheckHitBottom()
 	{
-		Rect2 vpr = GetViewportRect();
-		if (Position.Y > vpr.End.Y)
+		if (Position.Y > GetViewportRect().End.Y)
 		{
 			EmitSignal(SignalName.OnGemOffScreen);
-			QueueFree(); // Queue the gem to be removed
+			SetProcess(false);
 		}
 	}
 }
