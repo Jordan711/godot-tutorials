@@ -9,6 +9,7 @@ public partial class Paddle : Area2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Position = new Vector2(GetViewportRect().End.X/2, GetViewportRect().End.Y - 100);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
