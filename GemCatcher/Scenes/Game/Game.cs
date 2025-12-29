@@ -11,6 +11,13 @@ public partial class Game : Node2D
 	[Export] private PackedScene _gemScene;
 	[Export] private Timer _spawnTimer;
 
+	[Export] private Label _scoreLabel;
+
+	[Export] private AudioStreamPlayer _music;
+	[Export] private AudioStreamPlayer2D _scoredEffect;
+
+	private int _score = 0;
+
 	public override void _Ready()
 	{
 		// X increases means going from left to right
@@ -40,6 +47,7 @@ public partial class Game : Node2D
 
 		// Gem gem = GetNode<Gem>("Gem");
 		//_gem.OnScored += OnScored;
+		_scoreLabel.Text = "Score: " + _score.ToString();
 		_spawnTimer.Timeout += SpawnGem;
 		SpawnGem();
 	}
@@ -58,7 +66,7 @@ public partial class Game : Node2D
 		AddChild(gem);
 
 		float rX = (float)GD.RandRange(
-			vpr.Position.X + 50.0, vpr.End.X- 50.0
+			vpr.Position.X + 50.0, vpr.End.X - 50.0
 		);
 
 		gem.Position = new Vector2(rX, -100);
@@ -68,11 +76,20 @@ public partial class Game : Node2D
 
 	private void OnScored()
 	{
+		_score += 1;
+		_scoreLabel.Text = "Score: " + _score.ToString();
+		_scoredEffect.Play();
 		GD.Print("Game subscriber received message");
 	}
 
 	private void GameOver()
 	{
 		GD.Print("Game Over");
+		foreach (Node node in GetChildren())
+		{
+			node.SetProcess(false);
+		}
+		_spawnTimer.Stop();
+		_music.Stop();
 	}
 }
