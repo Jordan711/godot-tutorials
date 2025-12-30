@@ -13,7 +13,13 @@ config_version=5
 config/name="GemCatcher"
 run/main_scene="uid://bcnd07bjf1grh"
 config/features=PackedStringArray("4.5", "C#", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://c5rnp1f6k5g36"
+
+[display]
+
+window/size/window_width_override=1728
+window/size/window_height_override=972
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
