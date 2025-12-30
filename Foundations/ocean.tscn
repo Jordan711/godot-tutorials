@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc4m8dn4x0vqs"]
+
+[ext_resource type="Script" uid="uid://b1una81derdn7" path="res://Ocean.cs" id="1_nb2vx"]
+[ext_resource type="Texture2D" uid="uid://bu3lusgiok1p8" path="res://Assets/Water.png" id="2_bwgqs"]
+[ext_resource type="Texture2D" uid="uid://diefa1m78sg1b" path="res://Assets/Plane.png" id="3_ihpsq"]
+[ext_resource type="Texture2D" uid="uid://crwsxj2oibcfs" path="res://Assets/tile_454.png" id="4_bwgqs"]
+[ext_resource type="Texture2D" uid="uid://dsc1m1jdbmnt4" path="res://Assets/Helicopter.png" id="4_ihpsq"]
+[ext_resource type="Texture2D" uid="uid://bw7ru6t010e5q" path="res://Assets/Carrier.png" id="5_n3fli"]
+
+[node name="Ocean" type="Node2D" node_paths=PackedStringArray("_planeSprite")]
+script = ExtResource("1_nb2vx")
+_planeSprite = NodePath("Helicopter")
+
+[node name="Water" type="Sprite2D" parent="."]
+texture = ExtResource("2_bwgqs")
+centered = false
+
+[node name="Helicopter" type="Sprite2D" parent="."]
+position = Vector2(175, 167)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ihpsq")
+metadata/_edit_lock_ = true
+
+[node name="Plane" type="Sprite2D" parent="Helicopter"]
+z_index = 1
+position = Vector2(240, 460)
+rotation = 0.92327917
+skew = 0.43633235
+texture = ExtResource("3_ihpsq")
+
+[node name="Tile454" type="Sprite2D" parent="Helicopter/Plane"]
+position = Vector2(192.52832, 15.447266)
+rotation = -1.9706479
+scale = Vector2(2.3957343, 2)
+skew = 0.39985156
+texture = ExtResource("4_bwgqs")
+
+[node name="Carrier" type="Sprite2D" parent="."]
+position = Vector2(757.00006, 321.99997)
+rotation = -0.20943952
+scale = Vector2(1.3363875, 1.6552241)
+texture = ExtResource("5_n3fli")
