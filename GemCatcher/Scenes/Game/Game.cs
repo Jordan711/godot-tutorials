@@ -12,6 +12,7 @@ public partial class Game : Node2D
 	[Export] private Timer _spawnTimer;
 
 	[Export] private Label _scoreLabel;
+	[Export] private Label _gameOverLabel;
 
 	[Export] private AudioStreamPlayer _music;
 	[Export] private AudioStreamPlayer2D _scoredEffect;
@@ -85,7 +86,7 @@ public partial class Game : Node2D
 
 	private void GameOver()
 	{
-		GD.Print("Game Over");
+		_gameOverLabel.Text = "Game Over";
 		foreach (Node node in GetChildren())
 		{
 			node.SetProcess(false);
