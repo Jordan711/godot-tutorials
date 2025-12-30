@@ -15,7 +15,8 @@ public partial class Game : Node2D
 
 	[Export] private AudioStreamPlayer _music;
 	[Export] private AudioStreamPlayer2D _scoredEffect;
-
+	//[Export] private AudioStream _explodeSound;
+	private static readonly AudioStream EXPLODE_SOUND = GD.Load<AudioStream>("res://assets/explode.wav");
 	private int _score = 0;
 
 	public override void _Ready()
@@ -91,5 +92,8 @@ public partial class Game : Node2D
 		}
 		_spawnTimer.Stop();
 		_music.Stop();
+		_scoredEffect.Stop();
+		_scoredEffect.Stream = EXPLODE_SOUND;
+		_scoredEffect.Play();
 	}
 }

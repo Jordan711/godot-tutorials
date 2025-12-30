@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcnd07bjf1grh"]
+[gd_scene load_steps=9 format=3 uid="uid://bcnd07bjf1grh"]
 
 [ext_resource type="Script" uid="uid://bsm33r1d6vr07" path="res://Scenes/Game/Game.cs" id="1_rdw05"]
 [ext_resource type="Texture2D" uid="uid://duqj8hf124ars" path="res://assets/GameBg.png" id="2_gwu2e"]
+[ext_resource type="AudioStream" uid="uid://b5wewlo7vokfd" path="res://assets/explode.wav" id="3_gvja8"]
 [ext_resource type="PackedScene" uid="uid://buoptplmkqwae" path="res://Scenes/Paddle/Paddle.tscn" id="3_xbxml"]
 [ext_resource type="PackedScene" uid="uid://csy71taqtjqlu" path="res://Scenes/Gem/Gem.tscn" id="4_ln2h6"]
 [ext_resource type="Script" uid="uid://wl2tp27gwl5s" path="res://Scenes/Paddle/Paddle.cs" id="4_y3kpf"]
@@ -15,6 +16,7 @@ _spawnTimer = NodePath("Timer")
 _scoreLabel = NodePath("ScoreLabel")
 _music = NodePath("Music")
 _scoredEffect = NodePath("Effects")
+_explodeSound = ExtResource("3_gvja8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(537, 345)
