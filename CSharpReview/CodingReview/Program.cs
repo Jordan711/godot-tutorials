@@ -100,9 +100,9 @@ foreach (var item in clans)
 // inventory.Add("Food");
 // inventory.Add("Money");
 
-List<string> inventory = new List<string>(
+List<string> inventory = new List<string>{
     "Pipe", "Glamdring", "Wizard Staff"
-);
+};
 
 inventory.Remove("Money");
 
@@ -115,3 +115,20 @@ Console.WriteLine(inventory.Contains("Money"));
 List<string> sortedInventory = inventory.Order().ToList(); // Sorted in alphabetical order
 
 string desiredItem = inventory.FirstOrDefault(item => item == "Glamdring");
+
+Dictionary<string, string> fellowshipRoles = new Dictionary<string, string>();
+
+fellowshipRoles.Add("Frodo", "Ring Bearer");
+fellowshipRoles.Add("Gandalf", "Wizard");
+fellowshipRoles.Add("Aragorn", "Ranger");
+
+string frodoRole = fellowshipRoles["Frodo"];
+
+foreach (string member in fellowshipRoles.Keys) {}
+foreach (string roles in fellowshipRoles.Values) {}
+foreach (KeyValuePair<string, string> role in fellowshipRoles) {}
+
+if (fellowshipRoles.ContainsKey("asdad")) {}
+fellowshipRoles.Remove("Aragorn");
+
+fellowshipRoles["Frodo"] = "asdsaddasdas";
