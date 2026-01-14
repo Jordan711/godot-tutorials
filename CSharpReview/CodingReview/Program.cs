@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Reflection.PortableExecutable;
 
 // dotnet new console -n <name> 
 // Above command creates a new c# project
@@ -44,7 +45,7 @@ else
 }
 
 // Switch statements
-switch(name)
+switch (name)
 {
     case "Bob":
         Console.WriteLine("The name is Bob");
@@ -72,11 +73,11 @@ int inputAge = int.Parse(Console.ReadLine());
 
 
 // Arrays and loops
-string[] clans = {"Fire", "Water", "Earth", "Air"};
+string[] clans = { "Fire", "Water", "Earth", "Air" };
 
 Console.WriteLine(clans[2]);
 Console.WriteLine(clans.Length);
-clans [2] = "Blue";
+clans[2] = "Blue";
 Console.WriteLine(clans[2]);
 
 for (int i = 0; i < clans.Length; i++)
@@ -124,11 +125,11 @@ fellowshipRoles.Add("Aragorn", "Ranger");
 
 string frodoRole = fellowshipRoles["Frodo"];
 
-foreach (string member in fellowshipRoles.Keys) {}
-foreach (string roles in fellowshipRoles.Values) {}
-foreach (KeyValuePair<string, string> role in fellowshipRoles) {}
+foreach (string member in fellowshipRoles.Keys) { }
+foreach (string roles in fellowshipRoles.Values) { }
+foreach (KeyValuePair<string, string> role in fellowshipRoles) { }
 
-if (fellowshipRoles.ContainsKey("asdad")) {}
+if (fellowshipRoles.ContainsKey("asdad")) { }
 fellowshipRoles.Remove("Aragorn");
 
 fellowshipRoles["Frodo"] = "asdsaddasdas";
@@ -142,7 +143,7 @@ characterAbilities.Add("Joe", ["Speed", "Water"]);
 foreach (KeyValuePair<string, string[]> character in characterAbilities)
 {
     Console.Write($"{character.Key}: ");
-    foreach(string power in character.Value)
+    foreach (string power in character.Value)
     {
         Console.Write(power + ' ');
     }
@@ -156,3 +157,35 @@ foreach (KeyValuePair<string, string[]> character in characterAbilities)
         Console.WriteLine("Speed character: " + character.Key);
     }
 }
+
+// Functions
+Random random = new Random();
+
+void SayPhrase(string name, string phrase)
+{
+    Console.WriteLine($"{name} says: {phrase}");
+}
+
+int GetHealth(string name)
+{
+    int health = random.Next(50, 101);
+    Console.WriteLine($"{name} new health is {health}");
+    return health;
+}
+
+// Class
+Character frodo = new Character("Asdasdas");
+Hobbit hob = new Hobbit("Dam");
+hob.Introduce();
+hob.SneakAround();
+hob.ChangeName("Asdsadasdas");
+hob.Introduce();
+
+
+Monster m = new Monster("mmmmmm");
+m.Introduce();
+
+Character.CountCharacters();
+
+if (hob is Monster) {}
+if (hob is Character) {}
