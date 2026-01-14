@@ -132,3 +132,27 @@ if (fellowshipRoles.ContainsKey("asdad")) {}
 fellowshipRoles.Remove("Aragorn");
 
 fellowshipRoles["Frodo"] = "asdsaddasdas";
+
+Dictionary<string, string[]> characterAbilities = new Dictionary<string, string[]>();
+
+characterAbilities.Add("Frodo", ["Strength", "Courage"]);
+characterAbilities.Add("Bob", ["Speed", "Fire"]);
+characterAbilities.Add("Joe", ["Speed", "Water"]);
+
+foreach (KeyValuePair<string, string[]> character in characterAbilities)
+{
+    Console.Write($"{character.Key}: ");
+    foreach(string power in character.Value)
+    {
+        Console.Write(power + ' ');
+    }
+    Console.Write("\n");
+}
+
+foreach (KeyValuePair<string, string[]> character in characterAbilities)
+{
+    if (character.Value.Contains("Speed"))
+    {
+        Console.WriteLine("Speed character: " + character.Key);
+    }
+}
